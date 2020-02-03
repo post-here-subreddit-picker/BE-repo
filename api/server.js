@@ -18,4 +18,6 @@ server.get("/", (req, res) => {
 server.use("/api/auth", authRouter);
 server.use("/api/subreddits", authenticate, subredditsRouter);
 
+// 
+
 module.exports = server;
