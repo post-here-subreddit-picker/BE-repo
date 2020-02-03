@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         "Frank1"
     },
     {
-      username: "Frank2",
+      username: "Frank4",
       password:
         "Frank1"
     },

@@ -41,6 +41,7 @@ router.post("/login", (req, res) => {
     });
 });
 
+
 function signToken(user) {
   const payload = {
     posts: user.posts
