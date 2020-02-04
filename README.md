@@ -71,23 +71,27 @@ REQUIRED fields: username, password
 
 Returns an Object with user and token key:value paris. Example request body:
 
-`{
+```
+{
 
 "username": "jane",
 
 "password": "password"
 
-}`
+}
+```
 
 Example response body:
 
-`{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
 
-}`
+}
+```
 
 REQUIRED field username, password
 
@@ -100,12 +104,14 @@ req.header.authorization = token;
 
 Example request body:
 
-`{
+```
+{
 
 "headline": "Reddit post Title",
 
 "content": "Reddit post text description"
-}`
+}
+```
 
 REQUIRED fields: headline, content
 
@@ -113,7 +119,8 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -126,7 +133,8 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 
 # DELETE POST
@@ -140,6 +148,7 @@ Returns the number of posts deleted in a raw integer.
 Example response body:
 
 `1`
+
 PATH VARIABLES
 id
 
@@ -152,12 +161,14 @@ req.header.authorization = token;
 
 Example request body:
 
-`{
+```
+{
 
 "headline": "Reddit post Title",
 
 "content": "Reddit post text description"
-}`
+}
+```
 
 REQUIRED fields: headline, content
 
@@ -165,7 +176,8 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -178,7 +190,8 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 PATH VARIABLES
 id
@@ -194,12 +207,13 @@ Returns the all user information.
 
 Example response body:
 
-`{
-
+```
+{
 "user_id": 32, 
 
 "username": "jane"
-}`
+}
+```
 
 
 # GET USER BY ID
@@ -212,12 +226,14 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
-}`
+}
+```
 
 PATH VARIABLES
 id
@@ -233,7 +249,8 @@ Returns the post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -246,7 +263,8 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 PATH VARIABLES
 id
