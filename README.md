@@ -2,7 +2,7 @@
 # post-here
 
 # What does your API do?
-Register and login users, adds, deletes and updates posts, returns posts by user ID, returns a list of users, and gets user by ID.
+Register and login users, adds, deletes and updates posts, returns posts by user ID, returns a list of users, gets user by ID, and gets posts by a user's ID.
 
 # About
 To contribute or utiilize this project, clone and download the git repository at https://github.com/post-here-subreddit-picker/BE-repo. Run npm install to download the necessary dependencies. Run npm run server in the command line to start the server on your localhost:5000. This project sends and recieves exclusively json packets using the jsonwebtoken dependency.
