@@ -5,13 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-<<<<<<< HEAD
     "db:seed": "knex seed:run",
     "test": "jest"
-=======
-    "test": "jest",
-    "start": "node index.js"
->>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
   },
   "dependencies": {
     "axios": "^0.19.2",

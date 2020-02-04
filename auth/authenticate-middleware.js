@@ -12,8 +12,6 @@ module.exports = (req, res, next) => {
       if (err) {
         res.status(401).json({ message: "user not authorized" });
       } else {
-        // req.user = { posts: decodedToken.posts };
-
         next();
       }
     });

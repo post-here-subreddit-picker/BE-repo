@@ -7,8 +7,6 @@ const authRouter = require("../auth/auth-router.js");
 const userRouter = require("../users/users-routes.js");
 const postRouter = require("../data/helpers/post-router.js");
 const subredditsRouter = require("../Subreddits/reddit-router.js");
- const postsRouter = require("../data/helpers/post-router");
-const userRouter = require("../users/users-routes");
 
 const server = express();
 
@@ -23,9 +21,5 @@ server.use("/api/posts", postRouter);
 server.use("/api/users", userRouter);
 server.use("/api/auth", authRouter);
 server.use("/api/subreddits", authenticate, subredditsRouter);
-// server.use("/api/post", postsRouter);
-server.use(`/api/user`, postsRouter);
-
-// 
 
 module.exports = server;
