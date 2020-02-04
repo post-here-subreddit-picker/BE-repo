@@ -1,10 +1,11 @@
 const express = require("express");
-
+const User = require('../../users/users-model');
 const Posts = require("./post-model");
 const postRouter = express.Router();
 
 //  ADD
 
+<<<<<<< HEAD
 postRouter.post("/:id", (req, res) => {
   const { headline, content } = req.body;
   const user_id = Number(req.params.id);
@@ -12,22 +13,59 @@ postRouter.post("/:id", (req, res) => {
   if (!req.params.id) {
     res.status(404).json({
       error: "The user with the specified ID does not exist."
+=======
+// router.post("/:id", (req, res) => {
+//   const { headline, content } = req.body;
+//   // todo I'd like to add an add image capability here if possible
+//   if (!headline || !content) {
+//     res.status(400).json({
+//       message: "Please provide a headline and content for your post."
+//     });
+//   }
+
+//   Posts.add(req.body)
+    
+//     .then(post => {
+//       res.status(201).json(post);
+//     })
+//     .catch(err => {
+//       res.status(500).json({
+//         error: "There was an error while saving the post. "
+//       });
+//     });
+// });
+
+router.post("/:id", (req, res) => {
+  const { headline, conste } = req.body;
+  const user_id = Number(req.params.id);
+  if (!req.params.id) {
+    res.status(404).json({
+      errorMessage: "The user with the specified ID does not exist."
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
     });
   }
   if (!req.body.headline || !req.body.content) {
     res.status(400).json({
+<<<<<<< HEAD
       error: "Please provide a headline and content for your post."
     });
   }
 
   Posts.add({ user_id, headline, content })
+=======
+      errorMessage: "Please provide a headline and content for the post."
+    });
+  }
+
+  Posts.add({ post_id, headline, content })
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
     .then(posts => {
       res.status(201).json(posts);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        error: "There was an error while saving the post. "
+        error: "There was an error while saving the post to the database."
       });
     });
 });
