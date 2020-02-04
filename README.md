@@ -42,7 +42,7 @@ The server has encountered a situation it doesn't know how to handle
 Rate limit
 Is there a limit to the number of requests an user can send?
 
-None
+`None`
 
 Language
 POST https://post-here3.herokuapp.com/auth/register
@@ -54,13 +54,13 @@ Subsequent login required. Returns an Object with user and token key:value paris
 
 Example response body:
 
-`{
+```{
 
 "user_id": 32,
 
 "username": "jane"
 
-}`
+}```
 
 REQUIRED fields: username, password
 
