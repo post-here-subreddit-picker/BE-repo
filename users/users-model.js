@@ -31,10 +31,10 @@ function findById(id) {
 }
 
 function getUserDash(id) {
-  let query = db("posts as p");
+  let query = db("users as u");
 
   if (id) {
-    query.where("p.id", id).first();
+    query.where("u.id", id).first();
 
     const promises = [query, this.findUserPosts(id)];
 
@@ -55,6 +55,7 @@ function getUserDash(id) {
     });
   }
 }
+
 function findUserPosts(userId) {
   return db("posts")
     .where("user_id", userId)

@@ -14,7 +14,6 @@ exports.up = function(knex) {
     posts
       .integer("subreddit_id")
       .unsigned()
-      .notNullable()
       .references("id")
       .inTable("subreddits")
       .onDelete("CASCADE")

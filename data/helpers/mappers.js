@@ -2,6 +2,7 @@ module.exports = {
   intToBoolean,
   booleanToInt,
   postToBody,
+  userToBody,
   rdtPostToBody
 };
 
@@ -23,6 +24,20 @@ function postToBody(post) {
     result.rdtPosts = post.rdtPosts.map(rdtPost => ({
       ...rdtPost,
       posted: intToBoolean(rdtPost.posted)
+    }));
+  }
+
+  return result;
+}
+
+function userToBody(user) {
+  const result = {
+    ...user
+  };
+
+  if (user.posts) {
+    result.posts = user.posts.map(post => ({
+      ...post
     }));
   }
 

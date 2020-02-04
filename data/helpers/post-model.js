@@ -38,7 +38,7 @@ function get(id) {
 function add(post) {
   return db("posts")
     .insert(post, "id")
-    .then(([id]) => this.find(id));
+    .then(([id]) => this.get(id));
 }
 
 function update(id, changes) {
@@ -55,11 +55,11 @@ function remove(id) {
 }
 
 function getSubreddit(postId) {
-  return db("subreddits")
-    .join("posts", "posts.id", "post_id")
-    .select("subreddits.*", "title as t")
-    .where("post_id", postId)
-    .then(subreddit =>
-      subreddit.map(subreddit => mappers.rdtPostToBody(subreddit))
-    );
+  return (
+    db("subreddits")
+      // .where("post_id", postId)
+      .then(subreddit =>
+        subreddit.map(subreddit => mappers.rdtPostToBody(subreddit))
+      )
+  );
 }
