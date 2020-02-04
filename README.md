@@ -50,7 +50,8 @@ https://post-here3.herokuapp.com/auth/register
 REGISTER NEW USER
 Example request body: {"password": 'password' }
 
-Subsequent login required. Returns an Object with user and token key:value paris.
+Subsequent login required. Returns an Object with user and token key:value pairs.
+
 
 Example response body:
 
