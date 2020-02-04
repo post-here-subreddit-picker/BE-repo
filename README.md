@@ -49,7 +49,9 @@ Is there a limit to the number of requests an user can send?
 
 POST https://post-here3.herokuapp.com/auth/register
 
-Example request body: {"password": 'password' }
+Example request body: 
+
+`{"password": 'password' }`
 
 Subsequent login required. Returns an Object with user and token key:value pairs.
 
