@@ -14,10 +14,10 @@ router.get("/", restricted, (req, res) => {
 
 // .. GET USER BY ID ..
 router.get("/:id", restricted, (req, res) => {
-  const { id, username } = req.params;
+  const { id } = req.params;
   Users.findById(id)
     .then(user => {
-      res.status(200).json(user);
+      res.status(200).json(user.username);
     })
     .catch(err => {
       res.status(500).json({
@@ -26,11 +26,16 @@ router.get("/:id", restricted, (req, res) => {
     });
 });
 
+// .. GET USER and USER POSTS ..
 router.get("/:id/dash", (req, res) => {
-  const { id } = req.params;
+  const { id, posts } = req.params;
   Users.getUserDash()
     .then(user => {
-      res.status(200).json(user);
+      console.log(user.posts);
+      res
+        .status(200)
+        // .json(user)
+        .json(user);
     })
     .catch(err => {
       console.log(err);

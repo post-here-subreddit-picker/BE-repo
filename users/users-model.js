@@ -30,7 +30,7 @@ function findById(id) {
     .first();
 }
 
-function getUserDash(id) {
+function getUserDash(id, userId) {
   let query = db("users as u");
 
   if (id) {
@@ -44,14 +44,19 @@ function getUserDash(id) {
       if (user) {
         user.posts = posts;
 
-        return mappers.userToBody(user);
+        return user;
       } else {
         return null;
       }
     });
   } else {
     return query.then(users => {
-      return users.map(user => mappers.userToBody(user));
+      return (
+        users.map(user => mappers.userToBody(user)),
+        db("posts")
+          .where("user_id", userId)
+          .then(posts => posts.map(post => mappers.postToBody(post)))
+      );
     });
   }
 }
