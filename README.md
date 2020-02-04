@@ -44,12 +44,10 @@ Is there a limit to the number of requests an user can send?
 
 `None`
 
-Language
-POST https://post-here3.herokuapp.com/auth/register
-https://post-here3.herokuapp.com/auth/register
-
 
 # REGISTER NEW USER
+
+POST https://post-here3.herokuapp.com/auth/register
 
 Example request body: {"password": 'password' }
 
@@ -72,6 +70,8 @@ REQUIRED fields: username, password
 
 
 # LOGIN
+
+POST https://post-here3.herokuapp.com/auth/login
 
 Returns an Object with user and token key:value paris. Example request body:
 
@@ -101,6 +101,8 @@ REQUIRED field username, password
 
 
 # ADD POST
+
+POST https://post-here3.herokuapp.com/api/posts
 
 Requires authorization.
 
@@ -143,6 +145,8 @@ Example response body:
 
 # DELETE POST
 
+DEL https://post-here3.herokuapp.com/api/post/:id
+
 Requires authorization.
 
 req.header.authorization = token;
@@ -158,6 +162,8 @@ id
 
 
 # UPDATE USER POST
+
+PUT https://post-here3.herokuapp.com/api/post/:id
 
 Requires authorization.
 
@@ -203,6 +209,8 @@ id
 
 # GET ALL USERS
 
+GET https://post-here3.herokuapp.com/api/users
+
 Requires authorization.
 
 req.header.authorization = token;
@@ -221,6 +229,8 @@ Example response body:
 
 
 # GET USER BY ID
+
+GET https://post-here3.herokuapp.com/api/users/:id
 
 Requires authorization.
 
@@ -244,6 +254,8 @@ id
 
 
 # GET POST BY USER ID
+
+GET https://post-here3.herokuapp.com/api/users/:id/posts
 
 Requires authorization.
 
