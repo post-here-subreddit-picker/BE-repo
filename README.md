@@ -54,13 +54,15 @@ Subsequent login required. Returns an Object with user and token key:value paris
 
 Example response body:
 
-```{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
 
-}```
+}
+```
 
 REQUIRED fields: username, password
 
