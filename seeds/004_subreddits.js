@@ -1,34 +1,37 @@
 exports.seed = function(knex, Promise) {
   return knex("subreddits").insert([
     {
-      title: "/r/announcements"
+      id: 1,
+      title: "/r/announcements" 
     },
-    {
-      title: "/r/funny"
+    {id: 2,
+      title: "/r/funny" 
     },
-    {
-      title: "/r/AskReddit"
+    {id: 3,
+      title: "/r/AskReddit" 
     },
-    {
-      title: "/r/gaming"
+    {id: 4,
+      title: "/r/gaming" 
     },
-    {
-      title: "/r/pics"
+    {id: 5,
+      title: "/r/pics" 
     },
-    {
-      title: "/r/aww"
+    {id: 6,
+      title: "/r/aww" 
     },
-    {
-      title: "/r/science"
+    {id: 7,
+      title: "/r/science" 
     },
-    {
-      title: "/r/worldnews"
+    {id: 8,
+      title: "/r/worldnews" 
     },
-    {
-      title: "/r/Music"
+    {id: 9,
+      title: "/r/Music" 
     },
-    {
-      title: "/r/movies"
-    }
+    {id: 10,
+      title: "/r/movies" 
+    },
+
   ]);
 };
+

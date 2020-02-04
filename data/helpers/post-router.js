@@ -35,17 +35,47 @@ postRouter.post("/:id", (req, res) => {
 //     });
 // });
 
+<<<<<<< HEAD
+=======
+//  ADD
+
+// router.post("/:id", (req, res) => {
+//   const { headline, content } = req.body;
+//   // todo I'd like to add an add image capability here if possible
+//   if (!headline || !content) {
+//     res.status(400).json({
+//       message: "Please provide a headline and content for your post."
+//     });
+//   }
+
+//   Posts.add(req.body)
+    
+//     .then(post => {
+//       res.status(201).json(post);
+//     })
+//     .catch(err => {
+//       res.status(500).json({
+//         error: "There was an error while saving the post. "
+//       });
+//     });
+// });
+
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
 router.post("/:id", (req, res) => {
   const { headline, conste } = req.body;
   const user_id = Number(req.params.id);
   if (!req.params.id) {
     res.status(404).json({
       errorMessage: "The user with the specified ID does not exist."
+<<<<<<< HEAD
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
+=======
 >>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
     });
   }
   if (!req.body.headline || !req.body.content) {
     res.status(400).json({
+<<<<<<< HEAD
 <<<<<<< HEAD
       error: "Please provide a headline and content for your post."
     });
@@ -53,11 +83,16 @@ router.post("/:id", (req, res) => {
 
   Posts.add({ user_id, headline, content })
 =======
+=======
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
       errorMessage: "Please provide a headline and content for the post."
     });
   }
 
   Posts.add({ post_id, headline, content })
+<<<<<<< HEAD
+>>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
+=======
 >>>>>>> 8518855f260ead3a0869bad4f8279da7fbd838e7
     .then(posts => {
       res.status(201).json(posts);
