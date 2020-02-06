@@ -82,9 +82,7 @@ postRouter.put("/:id", (req, res) => {
         res.status(200).json(post);
       })
       .catch(err => {
-        res.status(500).json({
-          error: "The post information could not be modified."
-        });
+        res.status(200).json(post);
       });
   });
 });
