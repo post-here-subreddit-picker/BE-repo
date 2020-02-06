@@ -17,7 +17,7 @@ router.get("/:id", restricted, (req, res) => {
   const { id } = req.params;
   Users.findById(id)
     .then(user => {
-      res.status(200).json(user.username);
+      res.status(200).json([user.id, user.username]);
     })
     .catch(err => {
       res.status(500).json({
@@ -35,7 +35,7 @@ router.get("/:id/dash", (req, res) => {
       res
         .status(200)
         // .json(user)
-        .json(user);
+        .json(user.id);
     })
     .catch(err => {
       console.log(err);
@@ -84,4 +84,3 @@ router.get("/:id/posts", (req, res) => {
 });
 
 module.exports = router;
-

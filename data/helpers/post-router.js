@@ -1,5 +1,5 @@
 const express = require("express");
-
+const axios = require("axios");
 const Posts = require("./post-model");
 const postRouter = express.Router();
 
@@ -20,16 +20,22 @@ postRouter.post("/:id", (req, res) => {
     });
   }
 
-  Posts.add({ user_id, headline, content })
-    .then(posts => {
-      res.status(201).json(posts);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: "There was an error while saving the post. "
+  function getSubreddit() {
+    return axios.get(
+      `https://subreddit-finder.herokuapp.com/model/${headline}`
+    );
+  }
+  getSubreddit().then(function(response) {
+    Posts.add({ user_id, headline, content })
+      .then(posts => {
+        res.status(201).json(response.data);
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: "There was an error while saving the post. "
+        });
       });
-    });
+  });
 });
 
 // DELETE
@@ -70,7 +76,7 @@ postRouter.put("/:id", (req, res) => {
         error: "Please provide a headline and content for the post."
       });
     }
-    Posts.update(req.params.id, req.body)
+    Posts.update(id, req.body)
       .then(post => {
         console.log(post);
         res.status(200).json(post);
