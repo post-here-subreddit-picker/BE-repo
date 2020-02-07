@@ -4,6 +4,7 @@ const mappers = require("./mappers");
 module.exports = {
   get,
   add,
+  addSub,
   update,
   remove,
   getSubreddit
@@ -54,8 +55,26 @@ function remove(id) {
     .del();
 }
 
+function addSub(subreddit) {
+  return db("subreddits")
+    .insert(subreddit, "id")
+    .then(([id]) => this.get(id));
+}
+
 function getSubreddit(postId) {
-  return db("posts").then(subreddit =>
-    subreddit.map(subreddit => mappers.rdtPostToBody(subreddit))
-  );
+  return db("posts")
+    .where("subreddit_id", postId)
+    .then(posts => posts.map(post => mappers.rdtPostToBody(post.subreddit)));
+}
+
+function getSubreddits({ postId }) {
+  console.log(postId);
+  return db("subreddits")
+    .join("posts", "subreddits.id", "subreddit_id")
+    .select("subreddits.*", "title")
+    .where("subreddit_id", subredditId)
+    .then(
+      subreddit => console.log(subreddit),
+      subreddit.map(subreddit => mappers.rdtPostToBody(subreddit.title))
+    );
 }

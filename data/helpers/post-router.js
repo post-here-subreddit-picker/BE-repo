@@ -21,9 +21,12 @@ postRouter.post("/:id", (req, res) => {
   }
 
   function getSubreddit() {
-    return axios.get(
-      `https://subreddit-finder.herokuapp.com/model/${headline}`
-    );
+    return axios
+      .get(`https://subreddit-finder.herokuapp.com/model/${headline}`)
+      .then(response => {
+        console.log(response.data);
+        // Posts.addSub(response.data.id);
+      });
   }
   getSubreddit().then(function(response) {
     Posts.add({ user_id, headline, content })
@@ -66,27 +69,24 @@ postRouter.put("/:id", (req, res) => {
   const { headline, content } = req.body;
   const id = req.params.id;
 
-  Posts.get(req.params.id).then(post => {
+  Posts.get(id).then(post => {
     if (!post) {
       res.status(404).json({
         error: "The post with the specific ID does not exist."
       });
-    } else if (!req.body.headline || !req.body.content) {
+    } else if (!post.headline || !post.content) {
       res.status(400).json({
         error: "Please provide a headline and content for the post."
       });
     }
-    Posts.update(id, req.body)
-      .then(post => {
-        console.log(post);
-        res.status(200).json(post);
-      })
-      .catch(err => {
-        res.status(500).json({
-          error: "The post information could not be modified."
-        });
-      });
   });
+  Posts.update(headline, content)
+    .then(post => {
+      res.status(200).json(post);
+    })
+    .catch(i => {
+      res.status(500).json();
+    });
 });
 
 //  GET REDDIT POSTS
