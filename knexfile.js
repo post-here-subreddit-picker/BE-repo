@@ -43,5 +43,24 @@ module.exports = {
     seeds: {
       directory: "./data/seeds"
     }
-  }
+  },
+
+  testing: {
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: {
+      filename: ':memory:'
+    },
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done)
+      }
+    },
+    mirgrations: {
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
+    }
+  },
 };
