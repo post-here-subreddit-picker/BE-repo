@@ -55,11 +55,7 @@ function remove(id) {
 }
 
 function getSubreddit(postId) {
-  return (
-    db("subreddits")
-      // .where("post_id", postId)
-      .then(subreddit =>
-        subreddit.map(subreddit => mappers.rdtPostToBody(subreddit))
-      )
+  return db("posts").then(subreddit =>
+    subreddit.map(subreddit => mappers.rdtPostToBody(subreddit))
   );
 }

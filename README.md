@@ -1,9 +1,23 @@
 
+<<<<<<< HEAD
 
 # post-here-backend
 
 # What does your API do?
 Register and login users, adds, deletes and updates posts, returns posts by user ID, returns a list of users, and gets user by ID.
+=======
+# post-here
+
+# What does your API do?
+* Register users
+* login users
+* adds posts 
+* deletes posts 
+* updates posts
+* returns a list of all users
+* returns user by ID
+* returns posts by user ID
+>>>>>>> 4b0394280095accf8c07659739da365b353d8c86
 
 # About
 To contribute or utiilize this project, clone and download the git repository at https://github.com/post-here-subreddit-picker/BE-repo. Run npm install to download the necessary dependencies. Run npm run server in the command line to start the server on your localhost:5000. This project sends and recieves exclusively json packets using the jsonwebtoken dependency.
@@ -44,54 +58,71 @@ Rate limit
 Is there a limit to the number of requests an user can send?
 
 `None`
+<<<<<<< HEAD
+=======
 
-Language
+
+# REGISTER NEW USER
+>>>>>>> 4b0394280095accf8c07659739da365b353d8c86
+
 POST https://post-here3.herokuapp.com/auth/register
-https://post-here3.herokuapp.com/auth/register
-REGISTER NEW USER
-Example request body: {"password": 'password' }
 
-Subsequent login required. Returns an Object with user and token key:value paris.
+Example request body: 
+
+`{"password": 'password' }`
+
+Subsequent login required. Returns an Object with user and token key:value pairs.
+
 
 Example response body:
 
-`{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
 
-}`
+}
+```
 
 REQUIRED fields: username, password
 
 
 # LOGIN
 
+POST https://post-here3.herokuapp.com/auth/login
+
 Returns an Object with user and token key:value paris. Example request body:
 
-`{
+```
+{
 
 "username": "jane",
 
 "password": "password"
 
-}`
+}
+```
 
 Example response body:
 
-`{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
 
-}`
+}
+```
 
 REQUIRED field username, password
 
 
 # ADD POST
+
+POST https://post-here3.herokuapp.com/api/posts
 
 Requires authorization.
 
@@ -99,12 +130,14 @@ req.header.authorization = token;
 
 Example request body:
 
-`{
+```
+{
 
 "headline": "Reddit post Title",
 
 "content": "Reddit post text description"
-}`
+}
+```
 
 REQUIRED fields: headline, content
 
@@ -112,7 +145,8 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -125,10 +159,13 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 
 # DELETE POST
+
+DEL https://post-here3.herokuapp.com/api/post/:id
 
 Requires authorization.
 
@@ -139,11 +176,14 @@ Returns the number of posts deleted in a raw integer.
 Example response body:
 
 `1`
+
 PATH VARIABLES
 id
 
 
 # UPDATE USER POST
+
+PUT https://post-here3.herokuapp.com/api/post/:id
 
 Requires authorization.
 
@@ -151,12 +191,14 @@ req.header.authorization = token;
 
 Example request body:
 
-`{
+```
+{
 
 "headline": "Reddit post Title",
 
 "content": "Reddit post text description"
-}`
+}
+```
 
 REQUIRED fields: headline, content
 
@@ -164,7 +206,8 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -177,13 +220,16 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 PATH VARIABLES
 id
 
 
 # GET ALL USERS
+
+GET https://post-here3.herokuapp.com/api/users
 
 Requires authorization.
 
@@ -193,15 +239,18 @@ Returns the all user information.
 
 Example response body:
 
-`{
-
+```
+{
 "user_id": 32, 
 
 "username": "jane"
-}`
+}
+```
 
 
 # GET USER BY ID
+
+GET https://post-here3.herokuapp.com/api/users/:id
 
 Requires authorization.
 
@@ -211,18 +260,22 @@ Returns the new post information.
 
 Example response body:
 
-`{
+```
+{
 
 "user_id": 32,
 
 "username": "jane"
-}`
+}
+```
 
 PATH VARIABLES
 id
 
 
 # GET POST BY USER ID
+
+GET https://post-here3.herokuapp.com/api/users/:id/posts
 
 Requires authorization.
 
@@ -232,7 +285,8 @@ Returns the post information.
 
 Example response body:
 
-`{
+```
+{
 
 "id": 5,
 
@@ -245,7 +299,8 @@ Example response body:
 "content": "Reddit post text description",
 
 "subreddit": []
-}`
+}
+```
 
 PATH VARIABLES
 id
